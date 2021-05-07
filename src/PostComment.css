@@ -1,0 +1,17 @@
+.PostComment{
+    margin-left: 15px;
+    width: 100%;
+    padding: 8px 10px;
+}
+.post__commentHeader{
+    display: flex;
+    align-items: center;
+}
+
+.postComment__body{
+    margin-left: 15px;
+    width: 70%;
+    padding: 15px 20px;
+    border-radius: 0px 8px 8px 8px;
+    background: whitesmoke;
+}

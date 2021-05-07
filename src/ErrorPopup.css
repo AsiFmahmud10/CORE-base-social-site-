@@ -1,0 +1,13 @@
+.ErrorPopup{
+     width: 30vw;
+     padding: 30px;
+     animation: popup 2s ;
+     position: absolute;
+     z-index: 1000;
+}
+@keyframes popup {
+        from{
+            top:-100px;
+            background: rgb(250, 8, 8);}
+        to{background-color: rgb(247, 222, 222);}
+}

@@ -1,0 +1,44 @@
+.profile__container{
+    display: grid;
+    grid-template-columns: 400px calc(100% - 400px)  ;
+    grid-template-rows:95vh;
+    grid-template-areas: 
+    "pro pos"
+    ;
+  
+}
+.profile{
+        grid-area: pro;
+        border-right: 1px solid lightgray;
+        box-shadow: 2px 4px 4px -2px lightgray;
+        padding: 36px;
+        background: white;
+}
+.profile__info{
+    padding: 10px 3px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    font-weight: 400;
+}
+.profile__post{
+    grid-area: pos;
+    grid-area: pos;
+    display: flex;
+    gap: 10px;
+    padding: 22px;
+    flex-wrap: wrap;
+   
+}
+.profile__image{
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 1px 2px 2px -2px #222222;
+    border-radius: 6px;
+    height: 259px;
+    width: 344px;
+}
+.profile__image img{
+     object-fit: cover;
+     height: 100%;
+     width: 100%;
+}

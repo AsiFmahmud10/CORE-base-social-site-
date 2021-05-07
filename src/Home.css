@@ -1,0 +1,21 @@
+.home{
+    min-height: 100vh;
+    background: white;
+    width: 100vw;
+}
+.home__post{
+    width: 55vw;
+    margin: auto;
+}
+.home__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px;
+    color: rgba(0, 0, 0, .82);
+    border-bottom: 1px solid lightgray;
+    background: white;
+    position: sticky;
+    z-index: 100;
+    top: 0px;
+}
