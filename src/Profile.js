@@ -18,7 +18,13 @@ const Profile = () => {
             if(downloadUrl != null){
                 user.updateProfile({photoURL:downloadUrl}).
                 then(()=>{
-        
+                        db.collection('UserInformation').doc(user.uid)
+                        .set({
+                            photoURL:downloadUrl
+                        }).catch((err)=>{
+                            alert(err.message)
+                        })
+                        
                 }).
                 catch((err)=>{
                         alert(err.message)
@@ -63,9 +69,7 @@ useEffect(()=>{
                                 
                                         <div className="profile__image"><img src={downloadUrl} alt=""/></div>
                 {/** change profile */}                  
-                 
-
-                        <InputFile data={{user :auth.currentUser,setDownloadUrl:setDownloadUrl}}/>
+                   <InputFile data={{user :auth.currentUser,setDownloadUrl:setDownloadUrl}}/>
 
 
                                 <div className="profile__info">
@@ -75,6 +79,7 @@ useEffect(()=>{
                                 </div>
                     </div>
                     
+                      {/* PostStrip */}
                     <div className="profile__post">
                             {posts ?  posts.map((post)=>(
                                <PostStrip   key={post.id} post = {post}/>

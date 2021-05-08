@@ -9,6 +9,9 @@
     border-bottom: 1px solid lightgray;
     outline: 0px;
 }
+.form__container{
+    background: hsl(0, 9%, 98%);
+}
 .post__form{
     width: 500px;
     height: 300px;
@@ -16,7 +19,7 @@
     border: 1px solid lightgray;
     border-radius: 8px;
     padding: 60px;
-   
+    background: white;
 }
 .post__form .file{
    display: inline-block;

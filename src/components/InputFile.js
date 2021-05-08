@@ -14,7 +14,7 @@ const InputFile = ({data}) => {
         if(!file){
             return
         }
-            var uploadTask =storage.ref(`${user.uid}/profilePicture/${file.name}`).put(file)
+            var uploadTask =storage.ref(`${user.uid}/profilePicture/userImage`).put(file)
                        
 uploadTask.on('state_changed', 
   (snapshot) => {

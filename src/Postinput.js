@@ -24,7 +24,7 @@ const PostInput = () => {
     
     return ( 
             <div className="post__wrapper">
-                   <div>
+                   <div className='form__container'>
                         <form  className="post__form">
                                 <input placeholder = "caption"  onChange={(e)=>{setCaption(e.target.value)}}  required />
                                 <textarea name="" id=""  required cols="35" rows="2"

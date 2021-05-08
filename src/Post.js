@@ -1,18 +1,26 @@
 import { Avatar } from '@material-ui/core';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from './Firebase/config';
+import useGetUserPhoto from './composable/useGetUserImage';
+import { auth, db } from './Firebase/config';
 import './Post.css';
 const Post = ({data}) => {
+
+
+
+    const [userImage,setUserImage] = useState(null)
+    useGetUserPhoto(setUserImage,data.userId)
+ 
 
     return ( 
         <>
             <div className="post">
                           <div className="post__header">
-                                <Avatar
+                              <Avatar
                                     className="post__headerAvatar"
-                                    src={data.userPicture}
-                                   
+                                    src={userImage}
                                 />
+                              
                                 <h3>{data.username}</h3>
                           </div>
                     <div className="post__body">

@@ -2,20 +2,28 @@ import { Avatar, Button } from '@material-ui/core';
 import { ShoppingCartOutlined } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import useGetUserPhoto from './composable/useGetUserImage';
 import { auth, db } from './Firebase/config';
 import PostComment from './PostComment';
 import './PostDetails.css'
 
 const PostDetails = () => {
      const {PostId} = useParams()
+     
+
      const [data,setData] = useState(null)
      const [commentInput,setComment] = useState('')
      const [comments,setComments] = useState(null)
 
+    
+     const [userId,setUserId] = useState(null)
      
-useEffect(()=>{
-        console.log('first useEffect')
+     const [userImage,setUserImage] = useState(null)
+        useGetUserPhoto(setUserImage,userId)
 
+
+useEffect(()=>{
+        
         const unsub = db.collection('Post').doc(PostId).collection('Comments').onSnapshot((snap)=>{
                 console.log("snap subscribe")
                     let results=[]
@@ -24,20 +32,19 @@ useEffect(()=>{
                     })
                     setComments(results)
                 })
+
+                db.collection('Post').doc(PostId).get()
+                .then((snap)=>{
+                    
+                       let {userId} = snap.data()
+                       console.log(userId,"snap")
+                       setUserId( userId)
+                        setData({id:snap.id,...snap.data()})
+                })
+
                     return ()=>{unsub()}
 
 },[])
-
-     useEffect(()=>{
-        console.log('Second useEffect')
-                        db.collection('Post').doc(PostId).get()
-                        .then((snap)=>{
-                               // console.log(data)
-                                setData({id:snap.id,...snap.data()})
-                        })
-
-                     
-     },[])
 
      const handleSubmit =(e)=>{
                 e.preventDefault();
@@ -52,8 +59,6 @@ useEffect(()=>{
      }
 const [post,setPost] = useState(true)
 
-
-
     return ( 
         <>
              
@@ -62,7 +67,7 @@ const [post,setPost] = useState(true)
              <div className="post__details">
                             <div className="post__detailsHeader">
                                 <Avatar
-                                 src={auth.currentUser && auth.currentUser.photoURL}
+                                 src={userImage}
                                     alt={data.username}
                                 />
                                     <h3>{data.username}</h3>
@@ -112,16 +117,10 @@ const [post,setPost] = useState(true)
                                                                 ))
                                                                 }
                                                 </div>) }
-
-
-                                         
                                         </div>
-                                      
                             </div>
-
                 </div>
 )}
-                
         </>
      );
 }
