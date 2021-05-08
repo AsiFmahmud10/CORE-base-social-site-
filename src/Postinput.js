@@ -26,8 +26,9 @@ const PostInput = () => {
             <div className="post__wrapper">
                    <div className='form__container'>
                         <form  className="post__form">
-                                <input placeholder = "caption"  onChange={(e)=>{setCaption(e.target.value)}}  required />
-                                <textarea name="" id=""  required cols="35" rows="2"
+                                <input placeholder = "Caption"  onChange={(e)=>{setCaption(e.target.value)}}  required />
+                                <textarea name="" id=""  required cols="35" rows="2" required
+                                  placeholder='. . .Details ... '
                                    onChange={(e)=>{setpost(e.target.value)}}
                                 ></textarea>
                                 <input className="file" type="file" onChange={usehandle} />

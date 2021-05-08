@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth, storage } from "../Firebase/config";
+import './InputFile.css'
 
 const InputFile = ({data}) => {
     const [file,setFile] = useState(null)
@@ -37,7 +38,7 @@ uploadTask.on('state_changed',
     }
     return ( 
         
-        <form>
+        <form className='InputFile__form'>
                 <input type='file' onChange={handleUpload} />  <span >{ uploadStatus}</span>
         </form>
      );

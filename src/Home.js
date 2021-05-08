@@ -14,10 +14,8 @@ const Home = () => {
     return ( 
         
                 <div className="home">
-                        <button onClick={()=>{setMount(!mount)}}>asdsad</button>
-                      { mount && (
-                              <ErrorPopup msg={'nice'}/>
-                      )}
+                       
+                     
                             <div className="home__post">
                                                 {post && post.map((data)=>(
                                                         <Post  key={data.id}

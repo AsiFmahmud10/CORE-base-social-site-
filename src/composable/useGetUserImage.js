@@ -13,7 +13,7 @@ const useGetUserPhoto = (setUserImage,uid) => {
                      const {photoURL} = doc.data()
                      setUserImage(photoURL)
                 } else {
-                    alert("No such document!");
+                    
                 }
             }).catch((error) => {
                 console.log("Error getting document:", error.message);

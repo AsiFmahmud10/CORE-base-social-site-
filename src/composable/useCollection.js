@@ -6,7 +6,8 @@ export const useCollection=()=>{
     const [post, setPost] = useState(null)
             
     useEffect(()=>{
-                    let unsub =  db.collection('Post').onSnapshot((snap)=>{
+                    let unsub =  db.collection('Post').orderBy('createdAt',"desc")
+                    .onSnapshot((snap)=>{
                         console.log("snap subscribe")
                             let results=[]
                             snap.docs.map((doc)=>{

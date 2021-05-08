@@ -12,7 +12,7 @@ export const useSignUp =()=>{
                     const res = await auth.createUserWithEmailAndPassword(email.trim(),password)
                     setSignUpError(null)
                     addUserInformation(name,"Set_Name")
-                    addUserInformation("","Set_ProfileImage",'https://images.unsplash.com/photo-1616851928715-3173db62a78c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
+                    addUserInformation("","Set_ProfileImage",'https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg')
                 }catch(err){
                     setSignUpError(err.message)
                 }

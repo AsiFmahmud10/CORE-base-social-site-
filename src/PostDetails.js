@@ -3,7 +3,7 @@ import { ShoppingCartOutlined } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useGetUserPhoto from './composable/useGetUserImage';
-import { auth, db } from './Firebase/config';
+import { auth, db, timeStamp } from './Firebase/config';
 import PostComment from './PostComment';
 import './PostDetails.css'
 
@@ -24,7 +24,7 @@ const PostDetails = () => {
 
 useEffect(()=>{
         
-        const unsub = db.collection('Post').doc(PostId).collection('Comments').onSnapshot((snap)=>{
+        const unsub = db.collection('Post').doc(PostId).collection('Comments') .orderBy('createdAt').onSnapshot((snap)=>{
                 console.log("snap subscribe")
                     let results=[]
                     snap.docs.map((doc)=>{
@@ -52,7 +52,8 @@ useEffect(()=>{
                         user : auth.currentUser.uid,
                         userName : auth.currentUser.displayName,
                         userPicture :auth.currentUser.photoURL,
-                        comments : commentInput
+                        comments : commentInput,
+                        createdAt: timeStamp()
                 })
                 setComment('')
                 setPost(false)

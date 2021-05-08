@@ -13,6 +13,7 @@ const Profile = () => {
     const [downloadUrl,setDownloadUrl] = useState(auth.currentUser.photoURL)
     const [userImage,setUserImage] = useState()
     const history = useHistory()
+    const [changeImage,setChangeImage] =useState(false)
     useEffect(()=>{
 
             if(downloadUrl != null){
@@ -22,12 +23,14 @@ const Profile = () => {
                         .set({
                             photoURL:downloadUrl
                         }).catch((err)=>{
-                            alert(err.message)
+                            console.log(err.message)
                         })
                         
+                }).then(()=>{
+                    setChangeImage(false)
                 }).
                 catch((err)=>{
-                        alert(err.message)
+                    console.log(err.message)
                     }  ) 
                     
             }
@@ -56,7 +59,7 @@ useEffect(()=>{
             if(user && types.includes(target.type) ){
                 user.updateProfile({photoURL:target}).
                 catch((err)=>{
-                        alert(err.message)
+                    console.log(err.message)
                       }  )  
             }else{
             alert("Upload in Correct format")
@@ -69,7 +72,7 @@ useEffect(()=>{
                                 
                                         <div className="profile__image"><img src={downloadUrl} alt=""/></div>
                 {/** change profile */}                  
-                   <InputFile data={{user :auth.currentUser,setDownloadUrl:setDownloadUrl}}/>
+                  
 
 
                                 <div className="profile__info">
@@ -77,6 +80,14 @@ useEffect(()=>{
                                      <div>Email : {user.email}</div>
                                       {/* <input type="file" onChange={handleUpload}/>*/}
                                 </div>
+                                
+        
+                          <Button variant="contained" color="primary" component="span" onClick={()=>{setChangeImage(true)}}>Change profile picture</Button>
+                                {changeImage && (
+                                    <InputFile data={{user :auth.currentUser,setDownloadUrl:setDownloadUrl}}/>
+                                )}
+                                
+
                     </div>
                     
                       {/* PostStrip */}

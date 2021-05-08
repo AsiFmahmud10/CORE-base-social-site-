@@ -9,7 +9,11 @@ const PostComment = ({data}) => {
         const {user} = data
         const [userImage,setUserImage] = useState(null)
         useGetUserPhoto(setUserImage,user)
-
+        
+        let time 
+        if(data.createdAt){
+                time = new Date(data.createdAt.toDate()).toLocaleString().split(',')
+        }
 
     const history = useHistory()
     return ( 
@@ -22,6 +26,13 @@ const PostComment = ({data}) => {
                                     <div className="postComment__body">
                                             <h3 >{data.userName} </h3>  {/*onClick={()=>{history.push(`/profile/${data.user}`)}}*/}
                                             {data.comments}
+                                            { data.createdAt && (<div className='time'>
+                                                   <div>{time[0]}</div>
+                                                   <div>{time[1]}</div>
+                                                    </div>)}
+                                                    
+                                                   
+                                             
                                     </div>
                                    
                         </div>

@@ -10,6 +10,9 @@
     padding: 10px;
     background: rgb(255, 255, 255);
 }
+.post__body .time{
+    padding: 4px;
+}
 .post__header h3{
    margin-left: 10px;
 }

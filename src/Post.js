@@ -7,6 +7,10 @@ import './Post.css';
 const Post = ({data}) => {
 
 
+    let time 
+    if(data.createdAt){
+            time = new Date(data.createdAt.toDate()).toLocaleString().split(',')
+    }
 
     const [userImage,setUserImage] = useState(null)
     useGetUserPhoto(setUserImage,data.userId)
@@ -22,6 +26,11 @@ const Post = ({data}) => {
                                 />
                               
                                 <h3>{data.username}</h3>
+                                { data.createdAt && (<div className='time'>
+                                               <div>{time[1]}</div>
+                                                  {time[0]}
+                                                   
+                                                    </div>)}
                           </div>
                     <div className="post__body">
                                 <div className="post__img">
@@ -30,7 +39,10 @@ const Post = ({data}) => {
                                 <h3 className="post__summary"> 
                                         <span>{data.caption}</span>
                                         <Link to={`postDetails/${data.id}`}>Read more</Link>
+                                       
                                 </h3>   
+                              
+                                
                                 
                     </div>
                            

@@ -2,6 +2,7 @@
     min-height: 100vh;
     background: white;
     width: 100vw;
+    padding-top: 14px;
 }
 .home__post{
     width: 55vw;

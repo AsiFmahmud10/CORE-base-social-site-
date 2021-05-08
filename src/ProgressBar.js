@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useGetCollection } from "./composable/useGetCollection";
 import { useStorage } from "./composable/useStorage";
-import { auth } from "./Firebase/config";
+import { auth, timeStamp } from "./Firebase/config";
 
 const ProgressBar = ({file,data}) => {
     
@@ -16,7 +16,8 @@ const ProgressBar = ({file,data}) => {
                 ImageDownloadUrl: ImageDownloadUrl,
                 username : auth.currentUser.displayName,
                 userId : auth.currentUser.uid,
-                userPicture : auth.currentUser.photoURL
+                userPicture : auth.currentUser.photoURL,
+                createdAt: timeStamp()
             })  
             history.push('./')
         }
@@ -27,7 +28,7 @@ const ProgressBar = ({file,data}) => {
     
     return ( 
         <>
-               <div>progress bar</div>
+               <div className="error" >PLZ WAIT . . .</div>
            
         </>
      );

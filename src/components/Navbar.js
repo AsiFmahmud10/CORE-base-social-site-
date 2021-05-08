@@ -24,7 +24,7 @@ const Navbar = () => {
                <Button onClick={()=>{ history.push('/Profile') }}>Profile</Button>
                  
                    { auth.currentUser ? (
-                       <Button  onClick={()=>{sign_out()} }>Sign out</Button>
+                       <Button  onClick={()=>{ sign_out() ; history.push('/')} }>Sign out</Button>
                    ):( <TransitionsModal />)}
                    
             </div>   
