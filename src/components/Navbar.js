@@ -7,18 +7,26 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router';
 import TransitionsModal from './Modal';
 import { auth } from '../Firebase/config';
-
-
+import logo from './logo.PNG'
+import './Navbar.css'
 
 const Navbar = () => {
     const {sign_Up,signUpError,addUserInformation, addUserInformationError } = useSignUp()
     const {sign_out} = useSignout()
     const {user,setUser} =  useAuth()
+
     const history = useHistory()
-    //
+    
+    const logocss = {
+        height:' 36px',
+        objectFit: 'contain'
+    }
     return ( 
         <div className="home__header">
-        <img src=" " alt="Logo Here"/> 
+            <div className='navbarLogo'><img src={logo} style={logocss}/> 
+            <h2>Core</h2>
+            </div>
+        
            <div className="home__log">
                <Button onClick={()=>{ history.push('/addPost') }}>Add Post</Button>
                <Button onClick={()=>{ history.push('/Profile') }}>Profile</Button>

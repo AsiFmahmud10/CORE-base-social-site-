@@ -1,0 +1,11 @@
+.navbarLogo{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.navbarLogo h2{
+    margin-top: 7px;
+    font-family: sans-serif;
+    font-size: 16px;
+}

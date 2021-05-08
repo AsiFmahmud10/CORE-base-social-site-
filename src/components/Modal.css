@@ -2,12 +2,3 @@
     width: 100% !important;
     margin: 10px 0px !important;
 }
-.makeStyles-paper-2{
-    max-width: 700px;
-    border-radius: 13px;
-    height: 1.0em;
-    padding: 62px !important;
-}
-.makeStyles-modal-1 .MuiBackdrop-root {
-    background-color: rgba(90, 88, 88, 0.856)
-}

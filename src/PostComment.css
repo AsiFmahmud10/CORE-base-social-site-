@@ -10,7 +10,7 @@
 .time{
     width: 100%;
     font-size: 11px;
-    margin-top: -11px;
+    margin-top: 2px!important;
     color: #6c6666;
     text-align: end;
     font-family: cursive;

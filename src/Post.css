@@ -10,8 +10,15 @@
     padding: 10px;
     background: rgb(255, 255, 255);
 }
-.post__body .time{
-    padding: 4px;
+.post__header .time{
+    width: 100%;
+    font-size: 11px;
+    margin-top: -11px !important;
+    color: #6c6666;
+    text-align: end;
+    font-family: cursive;
+    font-weight: bold;
+
 }
 .post__header h3{
    margin-left: 10px;

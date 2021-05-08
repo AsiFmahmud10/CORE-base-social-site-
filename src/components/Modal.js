@@ -90,7 +90,13 @@ const handleSignInSubmit=(e)=>{
       >
         <Fade in={open}>
           
-          <div className={`${classes.paper} text`}>
+          <div className={`${classes.paper} text`} style=
+          {{
+            borderRadius: '13px',
+            padding: '60px',
+            
+            
+            }}>
 
           {isSignUp === true ?  (
  <form className="sign__in"
@@ -114,6 +120,7 @@ const handleSignInSubmit=(e)=>{
      onChange={(e)=>{setPassword(e.target.value)}}
  />
  <Button type='submit' >Sign in</Button>
+ 
 <Button variant='text' onClick={()=>{setIsSignUp(false);setEmail('');setPassword('')}}>Not Sign up yet !! click to sign up</Button>
 
 </form>
@@ -129,6 +136,7 @@ const handleSignInSubmit=(e)=>{
                  <TextField   
                              variant = 'standard'
                              label = 'Full name'
+                             required
                              value={name}
                              onChange={(e)=>{
                                 setName(e.target.value)
@@ -149,7 +157,7 @@ const handleSignInSubmit=(e)=>{
                                       value={password}
                                       onChange={(e)=>{setPassword(e.target.value)}}
                                 />
-                         {password}
+                        
                          <Button type='submit'>Register</Button>
                          <Button onClick={()=>{setIsSignUp(true)}}>Already a member !! click to sign in</Button>
          </form>

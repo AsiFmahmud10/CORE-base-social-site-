@@ -1,6 +1,7 @@
 
 .post__details{
     max-width: 50vw;
+    min-width: 584px;
     margin: auto;
     margin-top: 15px;
     background: white;
@@ -53,7 +54,8 @@
 .post__detailsCaption{
     width: 32%;
     color: rgb(99, 95, 95);
-    overflow: hidden;
+    
+    overflow-wrap: anywhere;
     text-overflow: ellipsis;
 }
 .post__detailsCaption h3{
