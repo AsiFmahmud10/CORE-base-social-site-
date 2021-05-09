@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useGetUserPhoto from './composable/useGetUserImage';
 import { auth, db } from './Firebase/config';
+import {motion} from 'framer-motion'
 import './Post.css';
 const Post = ({data}) => {
-
+    
+   
 
     let time 
     if(data.createdAt){
@@ -18,7 +20,12 @@ const Post = ({data}) => {
 
     return ( 
         <>
-            <div className="post">
+          
+            <motion.div 
+                initial={{opacity:0}}
+                animate={{opacity:1}}
+                transition={{delay:.1,duration:.3}}
+            className="post">
                           <div className="post__header">
                               <Avatar
                                     className="post__headerAvatar"
@@ -38,7 +45,14 @@ const Post = ({data}) => {
                                 </div>
                                 <h3 className="post__summary"> 
                                         <span>{data.caption}</span>
-                                        <Link to={`postDetails/${data.id}`}>Read more</Link>
+                                        <Link to={`postDetails/${data.id}`}>
+                                            <motion.div
+                                                whileHover={{scale:1.04}}
+                                            >
+                                                Read more
+                                            </motion.div>
+                                            
+                                            </Link>
                                        
                                 </h3>   
                               
@@ -48,7 +62,7 @@ const Post = ({data}) => {
                            
 
 
-            </div>
+            </motion.div>
 
         </>
      );

@@ -5,11 +5,13 @@ import { useParams } from 'react-router';
 import useGetUserPhoto from './composable/useGetUserImage';
 import { auth, db, timeStamp } from './Firebase/config';
 import PostComment from './PostComment';
+import {motion} from 'framer-motion'
 import './PostDetails.css'
+import Log from './components/Log';
 
 const PostDetails = () => {
      const {PostId} = useParams()
-     
+     const [mount,setMount] = useState(false)
 
      const [data,setData] = useState(null)
      const [commentInput,setComment] = useState('')
@@ -62,10 +64,17 @@ const [post,setPost] = useState(true)
 
     return ( 
         <>
-             
+            
+                  <Log  notification={"Log in plz"} mount ={mount} setMount={setMount}/>
+              
              {data&& (
              
-             <div className="post__details">
+             <motion.div
+                    initial={{opacity:0}}
+                    animate={{opacity:1}}
+                    transition={{duration:.4}}
+             
+             className="post__details">
                             <div className="post__detailsHeader">
                                 <Avatar
                                  src={userImage}
@@ -99,7 +108,7 @@ const [post,setPost] = useState(true)
                                                                 <input type="text" 
                                                                 onClick={(e)=>{
                                                                     if(!auth.currentUser){
-                                                                        alert('signin plz')
+                                                                        setMount(true)
                                                                         setComment('')
                                                                       }
                                                                 }}
@@ -120,7 +129,7 @@ const [post,setPost] = useState(true)
                                                 </div>) }
                                         </div>
                             </div>
-                </div>
+                </motion.div>
 )}
         </>
      );

@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router';
 import { db } from './Firebase/config';
-
+import {motion} from 'framer-motion'
 const useStyles = makeStyles({
   root: {
     maxWidth:' 345px',
@@ -29,6 +29,10 @@ const classes = useStyles();
 
  
   return (
+    <motion.div 
+    initial={{opacity:0}}
+                      animate={{opacity:1}}
+                      transition={{duration:.4}}>
     <Card className={classes.root} onClick={()=>{history.push(`/postDetails/${post.id}`)}}>
       <CardActionArea>
         <CardMedia
@@ -51,5 +55,6 @@ const classes = useStyles();
       <CardActions>
       </CardActions>
     </Card>
+    </motion.div>
   );
 }

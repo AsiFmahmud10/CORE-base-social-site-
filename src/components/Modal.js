@@ -9,7 +9,7 @@ import { useSignUp } from '../composable/useSingup';
 import { useSignout } from '../composable/useSignOut';
 import './Modal.css'
 import { auth } from '../Firebase/config';
-
+import {motion} from 'framer-motion'
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -72,10 +72,18 @@ const handleSignInSubmit=(e)=>{
     <div style={{display: 'inline'}}>
 
                                                                  {/**  sign in or sign Up */}
-
-            <Button type="button" onClick={handleOpen}>
-                    Sign in
-            </Button>
+  
+          <Button type="button" onClick={handleOpen}>
+                        <motion.div 
+                        initial={{opacity:'0px',color:'black'}}
+                        animate={{ opacity:'1px',color:'red'}}
+                        transition={{delay:1.5,duration:3}}
+                        >
+                          Sign in
+                          </motion.div> 
+                  </Button>
+    
+            
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

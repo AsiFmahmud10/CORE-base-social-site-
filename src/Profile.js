@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router';
 import InputFile from './components/InputFile';
 import { auth, db } from './Firebase/config';
 import PostStrip from './PostStrip';
+import {motion} from 'framer-motion'
 import './profile.css'
 
 const Profile = () => {
@@ -12,6 +13,7 @@ const Profile = () => {
     const [posts,SetPosts] = useState(null)
     const [downloadUrl,setDownloadUrl] = useState(auth.currentUser.photoURL)
     const [userImage,setUserImage] = useState()
+   
     const history = useHistory()
     const [changeImage,setChangeImage] =useState(false)
     useEffect(()=>{
@@ -91,16 +93,23 @@ useEffect(()=>{
                     </div>
                     
                       {/* PostStrip */}
-                    <div className="profile__post">
-                            {posts ?  posts.map((post)=>(
+                    <div 
+                      
+                    
+                    className="profile__post">
+                        
+                            {posts &&  posts.map((post)=>(
                                <PostStrip   key={post.id} post = {post}/>
                             )
 
-                            ):(
-                                <div className='error'>
-                                     No post !!
-                                </div>
                             )}
+                            {
+                               posts && posts.length === 0 && (<div style={{textAlign:'center',width: '100%'}} >
+                                <h1 style={{fontFamily:'cursive',fontWeight:'lighter'}}>You dont have any post yet </h1>
+                           </div>)
+                            }
+                                
+                            
                     </div>
                 </div>
         </>
