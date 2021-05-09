@@ -16,9 +16,6 @@ const Home = () => {
         
                 <div className="home">
                    
-                       
-                       
-                     
                             <div className="home__post">
                                                 {post && post.map((data)=>(
                                                         <Post  key={data.id}

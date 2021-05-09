@@ -39,8 +39,8 @@ const Navbar = () => {
         }
     }
     return ( 
-        <div onClick={()=>{history.push('/')}} className="home__header">
-            <div className='navbarLogo'><img src={logo} style={logocss}/> 
+        <div  className="home__header">
+            <div onClick={()=>{history.push('/')}} className='navbarLogo'><img src={logo} style={logocss}/> 
             <h2>Core</h2>
             </div>
               

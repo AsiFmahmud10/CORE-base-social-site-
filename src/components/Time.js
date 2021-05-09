@@ -6,7 +6,7 @@ const Time = ({timeStamp}) => {
         }
     return ( 
         <div>   
-            asdasd
+        
                                   { timeStamp && (<div className='time'>
                                                    <div>{time[0]}</div>
                                                    <div>{time[1]}</div>

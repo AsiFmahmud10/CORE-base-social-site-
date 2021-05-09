@@ -30,9 +30,7 @@ const PostComment = ({data}) => {
                                                    <div>{time[0]}</div>
                                                    <div>{time[1]}</div>
                                                     </div>)}
-                                                    
-                                                   
-                                             
+                                              
                                     </div>
                                    
                         </div>

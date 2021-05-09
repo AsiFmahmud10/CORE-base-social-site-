@@ -48,10 +48,9 @@ export default function TransitionsModal() {
   useEffect(()=>{
     let unsub = auth.onAuthStateChanged((user)=>{
           console.log("auth listener subscribe")
-            if(user){
-                 addUserInformation(name,"Set_Name")
-                 addUserInformation("","Set_ProfileImage",'https://images.unsplash.com/photo-1616851928715-3173db62a78c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
-                console.log("user registered", user)
+            if(user && !user.displayName ){
+                 
+                 console.log("user registered", user)
             }else{
                 console.log("no user")
             }
