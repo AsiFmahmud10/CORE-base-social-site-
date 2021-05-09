@@ -39,7 +39,7 @@ const Navbar = () => {
         }
     }
     return ( 
-        <div className="home__header">
+        <div onClick={()=>{history.push('/')}} className="home__header">
             <div className='navbarLogo'><img src={logo} style={logocss}/> 
             <h2>Core</h2>
             </div>
@@ -50,7 +50,7 @@ const Navbar = () => {
 
 
            <div className="home__log">
-           
+               <Button onClick={()=>{history.push('/')}}>Home</Button>
                <Button onClick={()=>{ handlePush('/addPost') }}>Add Post</Button>
                <Button onClick={()=>{ handlePush('/Profile')  }}>Profile</Button>
                  

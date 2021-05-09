@@ -14,7 +14,7 @@ export const useSignUp =()=>{
                     addUserInformation(name,"Set_Name")
                     addUserInformation("","Set_ProfileImage",'https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg')
                 }catch(err){
-                    setSignUpError(err.message)
+                    alert('Plz, Try another Email')
                 }
             
     }

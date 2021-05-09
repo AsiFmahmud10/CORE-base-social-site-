@@ -9,3 +9,6 @@
     font-family: sans-serif;
     font-size: 16px;
 }
+.home__header{
+    cursor: pointer;
+}

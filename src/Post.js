@@ -24,7 +24,7 @@ const Post = ({data}) => {
             <motion.div 
                 initial={{opacity:0}}
                 animate={{opacity:1}}
-                transition={{delay:.1,duration:.3}}
+                transition={{delay:.2,duration:.2}}
             className="post">
                           <div className="post__header">
                               <Avatar
